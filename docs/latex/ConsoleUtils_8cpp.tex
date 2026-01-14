@@ -1,0 +1,117 @@
+\doxysection{space\+\_\+invaders\+\_\+cpp/\+Console\+Utils.cpp File Reference}
+\hypertarget{ConsoleUtils_8cpp}{}\label{ConsoleUtils_8cpp}\index{space\_invaders\_cpp/ConsoleUtils.cpp@{space\_invaders\_cpp/ConsoleUtils.cpp}}
+{\ttfamily \#include "{}Console\+Utils.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$termios.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ConsoleUtils_8cpp_a8196ab970ce52abe1854d7474f260534}{setup\+Console}} ()
+\begin{DoxyCompactList}\small\item\em Konfiguruje początkowe ustawienia konsoli. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ConsoleUtils_8cpp_a97e9b1fe8d4c010474637a654aad6566}{kbhit}} (void)
+\begin{DoxyCompactList}\small\item\em Sprawdza w sposób nieblokujący, czy naciśnięto klawisz klawiatury. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ConsoleUtils_8cpp_a0ab7dad392b17984909e6227968313e2}{is\+Key\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Sprawdza, czy został wciśnięty klawisz, nie zatrzymując programu. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{ConsoleUtils_8cpp_a2da36c055d23bb1f20f20bfabbb40661}{get\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera ostatni wciśnięty znak z bufora klawiatury. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ConsoleUtils_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}{clear\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em Czyści zawartość ekranu konsoli. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ConsoleUtils_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f}\label{ConsoleUtils_8cpp_a9d7e8af417b6d543da691e9c0e2f6f9f} 
+\index{ConsoleUtils.cpp@{ConsoleUtils.cpp}!clearScreen@{clearScreen}}
+\index{clearScreen@{clearScreen}!ConsoleUtils.cpp@{ConsoleUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{clearScreen()}{clearScreen()}}
+{\footnotesize\ttfamily void clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Czyści zawartość ekranu konsoli. 
+
+Usuwa wszystkie znaki z widocznego obszaru terminala i ustawia kursor w lewym górnym rogu (pozycja 0,0). Używana w każdej klatce przed narysowaniem nowej sceny gry. \Hypertarget{ConsoleUtils_8cpp_a2da36c055d23bb1f20f20bfabbb40661}\label{ConsoleUtils_8cpp_a2da36c055d23bb1f20f20bfabbb40661} 
+\index{ConsoleUtils.cpp@{ConsoleUtils.cpp}!getKey@{getKey}}
+\index{getKey@{getKey}!ConsoleUtils.cpp@{ConsoleUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{getKey()}{getKey()}}
+{\footnotesize\ttfamily char get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pobiera ostatni wciśnięty znak z bufora klawiatury. 
+
+Funkcja ta powinna być wywoływana zazwyczaj po upewnieniu się przez \doxylink{ConsoleUtils_8h_a0ab7dad392b17984909e6227968313e2}{is\+Key\+Pressed()}, że znak jest dostępny.
+
+\begin{DoxyReturn}{Returns}
+char Znak odpowiadający wciśniętemu klawiszowi. 
+\end{DoxyReturn}
+\Hypertarget{ConsoleUtils_8cpp_a0ab7dad392b17984909e6227968313e2}\label{ConsoleUtils_8cpp_a0ab7dad392b17984909e6227968313e2} 
+\index{ConsoleUtils.cpp@{ConsoleUtils.cpp}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!ConsoleUtils.cpp@{ConsoleUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily bool is\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sprawdza, czy został wciśnięty klawisz, nie zatrzymując programu. 
+
+Jest to funkcja typu "{}non-\/blocking"{}. W przeciwieństwie do standardowego std\+::cin, ta funkcja natychmiast zwraca wynik.
+
+\begin{DoxyReturn}{Returns}
+true Jeśli w buforze klawiatury znajduje się oczekujący znak. 
+
+false Jeśli bufor jest pusty. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{ConsoleUtils_8cpp_a0ab7dad392b17984909e6227968313e2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{ConsoleUtils_8cpp_a97e9b1fe8d4c010474637a654aad6566}\label{ConsoleUtils_8cpp_a97e9b1fe8d4c010474637a654aad6566} 
+\index{ConsoleUtils.cpp@{ConsoleUtils.cpp}!kbhit@{kbhit}}
+\index{kbhit@{kbhit}!ConsoleUtils.cpp@{ConsoleUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{kbhit()}{kbhit()}}
+{\footnotesize\ttfamily int kbhit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sprawdza w sposób nieblokujący, czy naciśnięto klawisz klawiatury. 
+
+Funkcja ta emuluje zachowanie znanej z systemu Windows funkcji \+\_\+kbhit() w środowiskach zgodnych z POSIX (Linux, mac\+OS). Pozwala sprawdzić stan bufora wejścia bez zatrzymywania działania programu.
+
+Działanie funkcji opiera się na tymczasowej modyfikacji ustawień terminala\+:
+\begin{DoxyEnumerate}
+\item Pobiera obecne ustawienia terminala (struktura termios).
+\item Wyłącza tryb kanoniczny (ICANON), aby znaki były dostępne natychmiast bez konieczności wciskania Enter.
+\item Wyłącza echo (ECHO), aby testowany znak nie pojawiał się na ekranie.
+\item Ustawia deskryptor wejścia (STDIN) w tryb nieblokujący (O\+\_\+\+NONBLOCK), dzięki czemu próba odczytu nie zatrzyma programu, jeśli bufor jest pusty.
+\item Próbuje pobrać jeden znak funkcją getchar().
+\item Natychmiast przywraca oryginalne ustawienia terminala.
+\item Jeśli znak został pobrany, jest zwracany do bufora (ungetc), aby kolejna funkcja (np. get\+Key) mogła go poprawnie odczytać.
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+int
+\begin{DoxyItemize}
+\item 1 (true)\+: Jeśli w buforze wejścia znajduje się znak (klawisz został wciśnięty).
+\item 0 (false)\+: Jeśli bufor jest pusty (brak wciśniętego klawisza).
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Funkcja jest przeznaczona dla systemów uniksowych (Linux, mac\+OS). Wymaga bibliotek \texorpdfstring{$<$}{<}termios.\+h\texorpdfstring{$>$}{>}, \texorpdfstring{$<$}{<}unistd.\+h\texorpdfstring{$>$}{>} oraz \texorpdfstring{$<$}{<}fcntl.\+h\texorpdfstring{$>$}{>}. 
+\end{DoxyNote}
+\Hypertarget{ConsoleUtils_8cpp_a8196ab970ce52abe1854d7474f260534}\label{ConsoleUtils_8cpp_a8196ab970ce52abe1854d7474f260534} 
+\index{ConsoleUtils.cpp@{ConsoleUtils.cpp}!setupConsole@{setupConsole}}
+\index{setupConsole@{setupConsole}!ConsoleUtils.cpp@{ConsoleUtils.cpp}}
+\doxysubsubsection{\texorpdfstring{setupConsole()}{setupConsole()}}
+{\footnotesize\ttfamily void setup\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Konfiguruje początkowe ustawienia konsoli. 
+
+Funkcja ta powinna być wywołana na początku działania programu. Jej głównym zadaniem jest przygotowanie środowiska do wyświetlania gry, np. poprzez ukrycie migającego kursora, co zapobiega irytującym efektom wizualnym podczas częstego odświeżania ekranu. 
