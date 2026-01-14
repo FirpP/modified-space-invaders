@@ -1,5 +1,0 @@
-<map id="isKeyPressed" name="isKeyPressed">
-<area shape="rect" id="Node000001" title="Sprawdza, czy został wciśnięty klawisz, nie zatrzymując programu." alt="" coords="5,5,113,31"/>
-<area shape="rect" id="Node000002" href="$ConsoleUtils_8cpp.html#a97e9b1fe8d4c010474637a654aad6566" title="Sprawdza w sposób nieblokujący, czy naciśnięto klawisz klawiatury." alt="" coords="161,5,216,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,15,148,15,148,21,114,21"/>
-</map>
